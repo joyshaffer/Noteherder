@@ -10,7 +10,7 @@ const noteIds = Object.keys(props.notes)
         <div class="NoteList">
           <h3>Notes</h3>
           <ul id="notes">
-            {notes.map(noteId => <Note note={props.notes[noteId]} />)}
+            {notesId.map(noteId => <Note note={props.notes[noteId]} key={noteId} />)}
           </ul>
         </div>
     )
