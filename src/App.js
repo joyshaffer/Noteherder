@@ -66,7 +66,6 @@ class App extends Component {
           notes={this.state.notes} 
           currentNote={this.state.currentNote}
           {...actions}
-          saveNote={this.saveNote} 
         />
       </div>
     )
