@@ -17,10 +17,9 @@ class NoteForm extends Component {
   handleChanges = (ev) => {
     const note = {...this.state.note}
     note[ev.target.name] = ev.target.value
-    this.setState(
-      { note },
-      () => this.props.saveNote(this.state.note)
-    )
+    this.props.saveNote(note)
+    
+    
   }
 
   handleSubmit = (ev) => {
@@ -41,6 +40,7 @@ class NoteForm extends Component {
                 placeholder="Title of your note"
                 onChange={this.handleChanges}
                 value={currentNote.title}
+                onChange={this.handleChanges}
               />
             </p>
             <p>
@@ -48,7 +48,7 @@ class NoteForm extends Component {
                 name="body"
                 placeholder="Start typing..."
                 onChange={this.handleChanges}
-                value={currentNote.body}
+                value={this.handleChanges}
               ></textarea>
             </p>
             <button type="submit">
