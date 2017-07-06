@@ -1,20 +1,20 @@
 import React from 'react'
 
-const Note = (props) => {
+const Note = ({ note, setCurrenNote }) => {
   const handleClick = () => {
-    props.setCurrenNote(props.note)
+    setCurrenNote(note)
   }
-  
+
   return (
     <a onClick={handleClick}>
       <li>
         <div className="note">
           <div className="note-title">
-            {props.note.title}
+            {note.title}
           </div>
           <div className="note-body">
             <p>
-              {props.note.body}
+              {note.body}
             </p>
           </div>
         </div>

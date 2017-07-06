@@ -34,6 +34,8 @@ class NoteForm extends Component {
   }
 
     render() {
+      const { currentNote } = this.props
+
       return (
         <div class="NoteForm">
           <form onSubmit={this.handleSubmit}>
@@ -43,7 +45,7 @@ class NoteForm extends Component {
                 name="title"
                 placeholder="Title of your note"
                 onChange={this.handleChanges}
-                value={this.props.currentNote.title}
+                value={currentNote.title}
               />
             </p>
             <p>
@@ -51,7 +53,7 @@ class NoteForm extends Component {
                 name="body"
                 placeholder="Start typing..."
                 onChange={this.handleChanges}
-                value={this.props.currentNote.body}
+                value={currentNote.body}
               ></textarea>
             </p>
             <button type="submit">
