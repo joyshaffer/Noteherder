@@ -18,12 +18,25 @@ class App extends Component {
         title: '',
         body: '',
       },
-    }
+    },
+    currentNote: {this.blankNote()},
+  }
+
+  blankNote = () => {
+    return {
+      id: null,
+      title: '',
+      body: '',
+  }
   }
 
 //arrow function binds this
   setCurrentNote = (note) => {
     this.setState({ currentNote: note })
+  }
+
+  resetCurrentNote = (note) => {
+    this.setState({ blankNote() })
   }
 
   saveNote = (note) => {
@@ -36,12 +49,16 @@ class App extends Component {
   }
 
   render() {
+    const actions = {
+      setCurrentNote: this.setCurrentNote,
+      resetCurrentNote: this.resetCurrentNote,
+    }
     return (
       <div className="App">
         <Main 
           notes={this.state.notes} 
           currentNote={this.state.currentNote}
-          setCurrentNote={this.setCurrentNote}
+          {...actions}
           saveNote={this.saveNote} 
         />
       </div>

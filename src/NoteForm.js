@@ -11,12 +11,7 @@ class NoteForm extends Component {
     }
   }
 
-  blankNote = () => {
-    return {
-      id: null,
-      title: '',
-      body: '',
-    }
+ 
   }
 
   handleChanges = (ev) => {
