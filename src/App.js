@@ -3,26 +3,25 @@ import React, { Component } from 'react'
 import './App.css'
 import Main from './Main'
 
-
 class App extends Component {
-constructor() {
-  super()
+  constructor() {
+    super()
 
-  this.state = {
-    notes: {
-      'note-4': {
-        id: 'note-4',
-        title: 'from app state',
-        body:'fancy',
-      },
-      'note-5': {
-        id: 'note-5',
-        title: 'from app state',
-        body:'fancy',
-      },
+    this.state = {
+      notes:  {
+        'note-4': {
+          id: 'note-4',
+          title: 'Still from App state',
+          body: 'The fanciest!'
+        },
+        'note-5': {
+          id: 'note-5',
+          title: 'Another one',
+          body: 'Also very fancy',
+        },
+      }
     }
   }
-}
 
   render() {
     return (

@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+
 import './NoteForm.css'
 
-class NoteForm extends React.Component {
+class NoteForm extends Component {
     render() {
+      return (
         <div class="NoteForm">
           <div class="form-actions">
             <button type="button">
@@ -21,6 +23,7 @@ class NoteForm extends React.Component {
             <textarea name="body"></textarea>
           </form>
         </div>
+      )
     }
 }
 
