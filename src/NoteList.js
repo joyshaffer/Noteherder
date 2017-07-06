@@ -7,6 +7,10 @@ const NoteList = (props) => {
 //['note-4', 'note-5']
 const noteIds = Object.keys(props.notes)
 
+const handleClick = (Id) => {
+  props.noteChange(Id)
+}
+
     return (
         <div class="NoteList">
           <h3>Notes</h3>
