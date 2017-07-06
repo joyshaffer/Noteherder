@@ -3,19 +3,19 @@ import React, { Component } from 'react'
 import './App.css'
 import Main from './Main'
 
-
 class App extends Component {
   constructor() {
     super()
 
     //this.setCurrentNote=this.setCurrentNote.bind(this)
+    //used the arrow function for it instead to bind to this
 
     this.state = {
       notes:  {},
-
       currentNote: this.blankNote()
     } 
-
+  }
+  
   blankNote = () => {
     return {
       id: null,
@@ -39,9 +39,17 @@ class App extends Component {
       note.id = Date.now()
     }
     notes[note.id] = note
-    
+
     this.setState({ notes })
     this.setCurrentNote(note)
+  }
+
+  removeCurrentNote = () => {
+    const notes = {...this.state.notes}
+    delete notes[this.state.currentNote.id]
+
+    this.setState({ notes })
+    this.resetCurrentNote()
   }
 
   render() {
@@ -49,6 +57,7 @@ class App extends Component {
       setCurrentNote: this.setCurrentNote,
       resetCurrentNote: this.resetCurrentNote,
       saveNote: this.saveNote,
+      removeCurrentNote: this.removeCurrentNote,
     }
 
     return (

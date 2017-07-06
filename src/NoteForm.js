@@ -11,14 +11,10 @@ class NoteForm extends Component {
     }
   }
 
- 
-  }
-
   handleChanges = (ev) => {
     const note = {...this.state.note}
     note[ev.target.name] = ev.target.value
     this.props.saveNote(note)
-    
     
   }
 
@@ -37,7 +33,7 @@ class NoteForm extends Component {
               <input
                 type="text"
                 name="title"
-                placeholder="Title of your note"
+                placeholder="Title"
                 onChange={this.handleChanges}
                 value={currentNote.title}
                 onChange={this.handleChanges}
@@ -51,9 +47,10 @@ class NoteForm extends Component {
                 value={this.handleChanges}
               ></textarea>
             </p>
-            <button type="submit">
-              Save and new
-            </button>
+            <button 
+              type="button" 
+              onClick={this.props.removeCurrentNote}
+            ></button>
           </form>
         </div>
       )
