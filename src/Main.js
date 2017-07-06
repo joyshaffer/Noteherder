@@ -9,8 +9,14 @@ const Main = (props) => {
     return (
         <div className="Main">
             <SideBar />
-            <NoteList notes={props.notes} />
-            <NoteForm saveNote={props.saveNote} />
+            <NoteList
+                notes={props.notes}
+                setCurrentNote={props.setCurrentNote} 
+            />
+            <NoteForm 
+                currentNote={props.currentNote}
+                saveNote={props.saveNote} 
+            />
         </div>
     )
 }

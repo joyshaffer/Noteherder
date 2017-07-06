@@ -8,9 +8,22 @@ class App extends Component {
   constructor() {
     super()
 
+    //this.setCurrentNote=this.setCurrentNote.bind(this)
+
     this.state = {
       notes:  {},
+
+      currentNote: {
+        id: null,
+        title: '',
+        body: '',
+      },
     }
+  }
+
+//arrow function binds this
+  setCurrentNote = (note) => {
+    this.setState({ currentNote: note })
   }
 
   saveNote = (note) => {
@@ -25,7 +38,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Main notes={this.state.notes} saveNote={this.saveNote} />
+        <Main 
+          notes={this.state.notes} 
+          currentNote={this.state.currentNote}
+          setCurrentNote={this.setCurrentNote}
+          saveNote={this.saveNote} 
+        />
       </div>
     )
   }

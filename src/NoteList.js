@@ -15,7 +15,12 @@ const handleClick = (Id) => {
         <div class="NoteList">
           <h3>Notes</h3>
           <ul id="notes">
-            {notesId.map(noteId => <Note note={props.notes[noteId]} key={noteId} />)}
+            {notesId.map(noteId => 
+            <Note 
+              note={props.notes[noteId]} 
+              key={noteId} 
+            />
+            )}
           </ul>
         </div>
     )

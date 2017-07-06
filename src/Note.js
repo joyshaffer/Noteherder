@@ -1,9 +1,12 @@
 import React from 'react'
 
 const Note = (props) => {
-
+  const handleClick = () => {
+    props.setCurrenNote(props.note)
+  }
+  
   return (
-    <a className="active" onClick={handleClick}>
+    <a onClick={handleClick}>
       <li>
         <div className="note">
           <div className="note-title">
