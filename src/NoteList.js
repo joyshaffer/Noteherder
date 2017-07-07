@@ -10,7 +10,7 @@ const NoteList = ({ notes, setCurrentNote }) => {
         <div class="NoteList">
           <h3>Notes</h3>
           <ul id="notes">
-            {notesId.map(noteId => (
+            {noteIds.map(noteId => (
             <Note 
               note={notes[noteId]} 
               key={noteId} 

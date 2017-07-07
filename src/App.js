@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import base from './base'
+import base from './base.example.js'
 
 import './App.css'
 import Main from './Main'
@@ -41,7 +41,7 @@ class App extends Component {
   }
 
   resetCurrentNote = () => {
-    this.setState(blankNote())
+    this.setState(this.blankNote())
   }
 
   saveNote = (note) => {
