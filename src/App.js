@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import base from './base.example.js'
 
 import './App.css'
+import base, { auth } from './base'
 import Main from './Main'
 import SignIn from './SignIn'
 
@@ -69,12 +69,14 @@ class App extends Component {
     return this.state.uid
   }
 
-  handleAuth = () => {
-    this.setState({ uid: 'jeshaf' })
+  handleAuth = (result) => {
+    this.setState({ uid: result.user.uid })
   }
 
   signOut = () => {
-    this.setState({ uid: null })
+    auth
+      .signOut()
+      .then(() => this.setState({ uid: null }))
   }
 
   render() {
