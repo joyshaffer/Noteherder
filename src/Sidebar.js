@@ -7,7 +7,7 @@ import newIcon from './new.png'
 
 
 
-const Sidebar = ({ resetCurrentNote }) => {
+const Sidebar = ({ resetCurrentNote, signOut }) => {
   return (
     <nav className="Sidebar">
       <div className="logo">
@@ -28,7 +28,9 @@ const Sidebar = ({ resetCurrentNote }) => {
         />
       </a>
       <div className="SignOut">
-        <button>
+        <button
+          onClick={signOut}
+        >
           <i className="fa fa-sign-out"></i>
         </button>
       </div>
