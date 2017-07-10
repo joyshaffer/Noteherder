@@ -14,7 +14,7 @@ class App extends Component {
 
     this.state = {
       notes:  {},
-      currentNote: this.blankNote(),
+      currentNoteiId: null,
       uid: null,
     } 
   }
@@ -50,21 +50,14 @@ class App extends Component {
     )
   }
   
-  blankNote = () => {
-    return {
-      id: null,
-      title: '', 
-      body: '', 
-    }
-  }
 
 //arrow function binds this
   setCurrentNote = (note) => {
-    this.setState({ currentNote: note })
+    this.setState({ currentNoteId: note.id })
   }
 
   resetCurrentNote = () => {
-    this.setState(this.blankNote())
+    this.setState({ id: null })
   }
 
   saveNote = (note) => {
@@ -80,7 +73,7 @@ class App extends Component {
 
   removeCurrentNote = () => {
     const notes = {...this.state.notes}
-    notes[this.state.currentNote.id] = null
+    notes[this.state.currentNoteId.id] = null
 
     this.setState({ notes })
     this.resetCurrentNote()
@@ -104,7 +97,7 @@ class App extends Component {
     if(this.bindingRef) {
       base.removeBinding(this.bindingRef)
     }
-    
+
     this.setState({ 
       uid: null,
       notes: {},
@@ -128,7 +121,7 @@ class App extends Component {
 
     const noteData = {
       notes: this.state.notes,
-      currentNote: this.state.currentNote,
+      currentNoteId: this.state.currentNoteId,
     }
 
     return (
