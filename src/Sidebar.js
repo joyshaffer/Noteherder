@@ -5,13 +5,14 @@ import quill from './quill.svg'
 import newHover from './new-hover.png'
 import newIcon from './new.png'
 
-
-
 const Sidebar = ({ resetCurrentNote, signOut }) => {
   return (
     <nav className="Sidebar">
       <div className="logo">
-        <img src={quill} alt="Noteherder" />
+        <img 
+          src={quill} 
+          alt="Noteherder" 
+        />
       </div>
       <a 
         className="new-note"

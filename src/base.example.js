@@ -16,5 +16,8 @@ const db = database(app)
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider()
 export const auth = app.auth() 
+export const githubProvider = new firebase.auth.GithubAuthProvider()
 
-export default Rebase.createClass(db)
+const base = Rebase.createClass(db)
+
+export default base

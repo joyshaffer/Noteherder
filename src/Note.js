@@ -6,7 +6,10 @@ const Note = ({ note, setCurrenNote }) => {
   }
 
   return (
-    <a onClick={handleClick}>
+    <a 
+      className="active"
+      onClick={handleClick}
+    >
       <li>
         <div className="note">
           <div className="note-title">

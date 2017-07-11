@@ -42,8 +42,6 @@ class NoteForm extends Component {
   }
 
   handleEditorChanges = (editorValue) => {
-    
-
     const note = {...this.state.note}
     note.body = editorValue.toString('html')
     this.setState(
@@ -52,15 +50,17 @@ class NoteForm extends Component {
     )
   }
 
-  render() {
-    const { currentNote } = this.props
+handleRemove = () => {
+  this.props.removeCurrentNote(this.state.note)
+}
 
+  render() {
     return (
       <div className="NoteForm">
         <div className="form-actions">
           <button
             type="button"
-            onClick={this.props.removeCurrentNote}
+            onClick={this.removeCurrentNote}
           >
             <i className="fa fa-trash-o"></i>
           </button>

@@ -110,7 +110,7 @@ class App extends Component {
     auth.signOut()
   }
 
-  render() {
+  renderMain() {
     const actions = {
       setCurrentNote: this.setCurrentNote,
       resetCurrentNote: this.resetCurrentNote,
@@ -125,16 +125,21 @@ class App extends Component {
     }
 
     return (
+      <Main 
+          {...noteData}
+          {...actions}
+        />
+    )
+  }
+
+  render() {
+    return (
       <div className="App">
         {
           this.signedIn() 
           ? <Main {...noteDate} {...actions} /> 
           : <SignIn />
-        }
-        <Main 
-          {...noteData}
-          {...actions}
-        />
+        }   
       </div>
     )
   }
