@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
 
 import './App.css'
 import base, { auth } from './base'
@@ -135,11 +136,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {
-          this.signedIn() 
-          ? <Main {...noteDate} {...actions} /> 
-          : <SignIn />
-        }   
+        <Switch>
+          <Route path="/sign-in" component={SignIn} />
+          <Route 
+            path="/notes" 
+            render={() => (
+              <Main
+                {...actions}
+                {...noteData}
+              />
+            )} 
+          />
+        </Switch>
       </div>
     )
   }
