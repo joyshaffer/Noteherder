@@ -10,12 +10,9 @@ const Sidebar = ({ signOut }) => {
   return (
     <nav className="Sidebar">
       <div className="logo">
-        <img 
-          src={quill} 
-          alt="Noteherder" 
-        />
+        <img src={quill} alt="Noteherder" />
       </div>
-      <Link 
+      <Link
         className="new-note"
         to="/notes"
       >

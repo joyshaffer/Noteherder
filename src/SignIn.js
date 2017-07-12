@@ -27,17 +27,15 @@ const SignIn = () => {
           <img src={googleLogo} alt="" />
           Sign in with Google
         </button>
-
-        <button 
+        <button
           className="github"
           onClick={() => authenticate(githubProvider)}
         >
-        
-          Sign in with Github 
+          <i className="fa fa-github"></i>
+          Sign in with GitHub
         </button>
       </main>
     </div>
   )
 }
-
 export default SignIn

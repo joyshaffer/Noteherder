@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import RichTextEditor from 'react-rte'
+
 import './NoteForm.css'
 
 class NoteForm extends Component {
@@ -11,29 +12,29 @@ class NoteForm extends Component {
     }
   }
 
-  blankNote = () => {
-    return {
-      id: null,
-      title: '', 
-      body: '', 
-    }
-  }
-
   componentWillReceiveProps = (nextProps) => {
     const idFromUrl = nextProps.match.params.id
-    const note = nextProps.notes[idFromUrl] || this.blankNote() 
+    const note = nextProps.notes[idFromUrl] || this.blankNote()
 
-    const noteNoteFound = idFromUrl && !note.id
-    if(noteNoteFound && nextProps.firebaseNotesSynced ) {
+    const noteNotFound = idFromUrl && !note.id
+    if (noteNotFound && nextProps.firebaseNotesSynced) {
       this.props.history.replace('/notes')
     }
-
+    
     let editorValue = this.state.editorValue
-    if(editorValue.toString('html') !== note.body) {
+    if (editorValue.toString('html') !== note.body) {
       editorValue = RichTextEditor.createValueFromString(note.body, 'html')
     }
 
     this.setState({ note, editorValue })
+  }
+
+  blankNote = () => {
+    return {
+      id: null,
+      title: '',
+      body: '',
+    }
   }
 
   handleChanges = (ev) => {
@@ -41,7 +42,7 @@ class NoteForm extends Component {
     note[ev.target.name] = ev.target.value
     this.setState(
       { note },
-      () => this.props.saveNote(note),
+      () => this.props.saveNote(note)
     )
     
   }
@@ -55,17 +56,13 @@ class NoteForm extends Component {
     )
   }
 
-handleRemove = () => {
-  this.props.removeCurrentNote(this.state.note)
-}
-
   render() {
     return (
       <div className="NoteForm">
         <div className="form-actions">
           <button
             type="button"
-            onClick={this.removeCurrentNote}
+            onClick={() => this.props.removeNote(this.state.note)}
           >
             <i className="fa fa-trash-o"></i>
           </button>
@@ -75,7 +72,7 @@ handleRemove = () => {
             <input
               type="text"
               name="title"
-              placeholder="Title"
+              placeholder="Title your note"
               value={this.state.note.title}
               onChange={this.handleChanges}
             />
