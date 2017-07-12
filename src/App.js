@@ -77,12 +77,12 @@ class App extends Component {
     }
   }
 
-  removeCurrentNote = () => {
+  removeNote = (note) => {
     const notes = {...this.state.notes}
-    notes[this.state.currentNoteId.id] = null
+    notes[note.id] = null
 
     this.setState({ notes })
-    this.resetCurrentNote()
+    this.props.history.push("./notes")
   }
 
   signedIn = () => {
@@ -119,7 +119,7 @@ class App extends Component {
   renderMain() {
     const actions = {
       saveNote: this.saveNote,
-      removeCurrentNote: this.removeCurrentNote,
+      removeNote: this.removeCurrentNote,
       signOut: this.signOut,
     }
 
