@@ -15,8 +15,8 @@ class App extends Component {
 
     this.state = {
       notes:  {},
-      currentNoteiId: null,
       uid: null,
+      firebaseNotesSynced: false,
     } 
   }
 
@@ -47,6 +47,7 @@ class App extends Component {
       {
         context: this, //what object the state is on
         state: 'notes', //which property to sync
+        then: () => this.setState({ firebaseNotesSynced: true })
       }
     )
   }
